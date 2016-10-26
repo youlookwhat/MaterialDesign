@@ -14,7 +14,7 @@
 ###二、Detail
  - 官方英文：[Material Design Specification](https://material.google.com/#)
 
- - 简体中文(三方翻译)：[Material Design 中文版](wiki.jikexueyuan.com/project/material-design/)
+ - 简体中文(三方翻译)：[Material Design 中文版](http://wiki.jikexueyuan.com/project/material-design/)
 
 ----
 
@@ -29,6 +29,5 @@
 
 ###四、End
 
-<img width="50" height=“50” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif"></img> 喜欢的小伙伴可以Star哦!
+<img width="50" height=“50” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif"></img> 喜欢这个项目的小伙伴可以Star哦!
 
-----
