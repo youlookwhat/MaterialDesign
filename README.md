@@ -2,7 +2,6 @@
 全面的Material Design控件效果，转场动画，集合系统自带的LoginActivity、ScrollingActivity、ListActivity等
 
 
-
 ###一、Introduction
 <div align=center><img width="350" height=“150” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/intorduction_02.png"/></div>
 
@@ -21,7 +20,15 @@
 
 ###三、Project Picture
 
-<img width="50" height=“50” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif"></img>
-<iframe height=50 width=50 src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif>
+<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_01.png"></img>
+<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_02.png"></img>
+<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_03.png"></img>
+<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_04.png"></img>
+
+----
+
+###四、End
+
+<img width="50" height=“50” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif"></img> 喜欢的小伙伴可以Star哦!
 
 ----
