@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity
         mNavigationView.inflateMenu(R.menu.activity_main_drawer);
 
         // 自己写的方法，设置NavigationView中menu的item被选中后要执行的操作
-        onNavgationViewMenuItemSelected(mNavigationView);
+        onNavigationViewMenuItemSelected(mNavigationView);
 //        mNavigationView.setNavigationItemSelectedListener(this);
 
         // 初始化ViewPager的适配器，并设置给它
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity
      *
      * @param mNav
      */
-    private void onNavgationViewMenuItemSelected(NavigationView mNav) {
+    private void onNavigationViewMenuItemSelected(NavigationView mNav) {
         mNav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
