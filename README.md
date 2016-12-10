@@ -1,4 +1,4 @@
-# MaterialDesign
+# MaterialDesign <img width="50" height=“50” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif"></img>
 全面的Material Design控件效果，转场动画，集合系统自带的LoginActivity、ScrollingActivity、ListActivity等
 
 
@@ -25,7 +25,4 @@
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_04.png"></img>
 
 
-## End
-
-<img width="50" height=“50” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/other.gif"></img> 喜欢这个项目的小伙伴可以Star哦!
 
