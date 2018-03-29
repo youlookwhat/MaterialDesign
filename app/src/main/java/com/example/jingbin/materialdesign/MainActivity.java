@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import com.example.jingbin.materialdesign.activity.LoginActivity;
 import com.example.jingbin.materialdesign.activity.ScrollingActivity;
 import com.example.jingbin.materialdesign.activity.SettingsActivity;
+import com.example.jingbin.materialdesign.activity.TabbedActivity;
 import com.example.jingbin.materialdesign.list.ItemListActivity;
 import com.example.jingbin.materialdesign.main.MyFragment;
 import com.example.jingbin.materialdesign.main.adapter.MyViewPagerAdapter;
@@ -193,6 +194,7 @@ public class MainActivity extends AppCompatActivity
                     /** 登录*/
                     // Handle the camera action
                     new Handler().postDelayed(new Runnable() {
+                        @Override
                         public void run() {
                             //execute the task
                             startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -202,6 +204,7 @@ public class MainActivity extends AppCompatActivity
                 } else if (id == R.id.nav_gallery) {
                     /** 滚动title置顶的scroolview*/
                     new Handler().postDelayed(new Runnable() {
+                        @Override
                         public void run() {
                             //execute the task
                             startActivity(new Intent(MainActivity.this, ScrollingActivity.class));
@@ -211,6 +214,7 @@ public class MainActivity extends AppCompatActivity
                 } else if (id == R.id.nav_slideshow) {
                     /** listview*/
                     new Handler().postDelayed(new Runnable() {
+                        @Override
                         public void run() {
                             //execute the task
                             startActivity(new Intent(MainActivity.this, ItemListActivity.class));
@@ -219,6 +223,7 @@ public class MainActivity extends AppCompatActivity
                 } else if (id == R.id.nav_manage) {
                     /** 设置*/
                     new Handler().postDelayed(new Runnable() {
+                        @Override
                         public void run() {
                             //execute the task
                             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
@@ -226,6 +231,14 @@ public class MainActivity extends AppCompatActivity
                     }, 100);
 
                 } else if (id == R.id.nav_share) {
+                    /** 设置*/
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //execute the task
+                            startActivity(new Intent(MainActivity.this, TabbedActivity.class));
+                        }
+                    }, 100);
 
                 } else if (id == R.id.nav_send) {
 
