@@ -52,7 +52,10 @@
         <activity
             android:name=".activity.ScrollingActivity"
             android:label="@string/title_activity_scrolling2"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.BottomNavigatorActivity"
+            android:label="@string/title_activity_botton_navagtor"></activity>
     </application>
 
 </manifest>

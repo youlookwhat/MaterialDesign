@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.jingbin.materialdesign.activity.BottomNavigatorActivity;
 import com.example.jingbin.materialdesign.activity.LoginActivity;
 import com.example.jingbin.materialdesign.activity.ScrollingActivity;
 import com.example.jingbin.materialdesign.activity.SettingsActivity;
@@ -231,7 +232,7 @@ public class MainActivity extends AppCompatActivity
                     }, 100);
 
                 } else if (id == R.id.nav_share) {
-                    /** 设置*/
+                    /** TabbedActivity*/
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -241,7 +242,14 @@ public class MainActivity extends AppCompatActivity
                     }, 100);
 
                 } else if (id == R.id.nav_send) {
-
+                    /** BottomNavigatorActivity*/
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //execute the task
+                            startActivity(new Intent(MainActivity.this, BottomNavigatorActivity.class));
+                        }
+                    }, 100);
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
