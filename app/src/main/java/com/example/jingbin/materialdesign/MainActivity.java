@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.jingbin.materialdesign.activity.BottomNavigatorActivity;
+import com.example.jingbin.materialdesign.activity.FullscreenActivity;
 import com.example.jingbin.materialdesign.activity.LoginActivity;
 import com.example.jingbin.materialdesign.activity.ScrollingActivity;
 import com.example.jingbin.materialdesign.activity.SettingsActivity;
@@ -248,6 +249,16 @@ public class MainActivity extends AppCompatActivity
                         public void run() {
                             //execute the task
                             startActivity(new Intent(MainActivity.this, BottomNavigatorActivity.class));
+                        }
+                    }, 100);
+
+                }else if (id == R.id.nav_full) {
+                    /** BottomNavigatorActivity*/
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //execute the task
+                            startActivity(new Intent(MainActivity.this, FullscreenActivity.class));
                         }
                     }, 100);
                 }

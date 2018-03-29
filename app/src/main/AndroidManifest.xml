@@ -55,7 +55,12 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activity.BottomNavigatorActivity"
-            android:label="@string/title_activity_botton_navagtor"></activity>
+            android:label="@string/title_activity_botton_navagtor" />
+        <activity
+            android:name=".activity.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

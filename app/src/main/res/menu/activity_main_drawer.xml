@@ -30,6 +30,10 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="BottomNavigator" />
+            <item
+                android:id="@+id/nav_full"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Fullscreen" />
         </menu>
     </item>
 
