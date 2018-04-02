@@ -180,7 +180,7 @@
     </string>
     <string name="title_activity_tab">TabActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_scrolling2">ScrollingActivity2</string>
+    <string name="title_activity_scrolling2">ScrollingActivity</string>
     <string name="title_activity_botton_navagtor">BottonNavagtorActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
