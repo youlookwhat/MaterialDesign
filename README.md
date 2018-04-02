@@ -17,19 +17,41 @@
  - 简体中文(三方翻译)：[Material Design 中文版](http://wiki.jikexueyuan.com/project/material-design/)
 
 
+## Code
+> - [MainActivity][1]
+> - [BookDetailActivity][2]
+> - [LoginActivity][3]
+> - [ScrollingActivity][4]
+> - [ItemListActivity][5]
+> - [SettingsActivity][6]
+> - [TabbedActivity][7]
+> - [BottomNavigatorActivity][8]
+> - [FullscreenActivity][9] 
+> - [NewAppWidget][10]
+
+
 ## Project Picture
 
+<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_widget.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_menu.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_main.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_detail.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_login.jpg"></img>
-<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_view_scrolling.jpg"></img>
+<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_scrolling.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_listview.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_setting.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_tabbale.jpg"></img>
 <img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_bottom.jpg"></img>
-<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_full.jpg"></img>
-<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_widget.jpg"></img>
+<!--<img width="154" height=“274” src="https://github.com/youlookwhat/MaterialDesign/blob/master/file/view_full.jpg"></img>-->
 
 
-
+[1]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/MainActivity.java
+[2]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/detail/BookDetailActivity.java
+[3]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/activity/LoginActivity.java
+[4]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/activity/ScrollingActivity.java
+[5]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/list/ItemListActivity.java
+[6]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/activity/SettingsActivity.java
+[7]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/activity/TabbedActivity.java
+[8]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/activity/BottomNavigatorActivity.java
+[9]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/activity/FullscreenActivity.java
+[10]:https://github.com/youlookwhat/MaterialDesign/blob/master/app/src/main/java/com/example/jingbin/materialdesign/widget/NewAppWidget.java
