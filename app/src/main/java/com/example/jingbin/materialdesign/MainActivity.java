@@ -1,5 +1,6 @@
 package com.example.jingbin.materialdesign;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
 
 import com.example.jingbin.materialdesign.activity.BottomNavigatorActivity;
 import com.example.jingbin.materialdesign.activity.FullscreenActivity;
@@ -27,11 +29,16 @@ import com.example.jingbin.materialdesign.activity.TabbedActivity;
 import com.example.jingbin.materialdesign.list.ItemListActivity;
 import com.example.jingbin.materialdesign.main.MyFragment;
 import com.example.jingbin.materialdesign.main.adapter.MyViewPagerAdapter;
+import com.example.jingbin.materialdesign.main.utils.DateUtils;
+import com.example.jingbin.materialdesign.main.utils.SnackbarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.support.design.widget.TabLayout.MODE_SCROLLABLE;
+import static com.example.jingbin.materialdesign.main.utils.DateUtils.FORMAT_D;
+import static com.example.jingbin.materialdesign.main.utils.DateUtils.FORMAT_M;
+import static com.example.jingbin.materialdesign.main.utils.DateUtils.FORMAT_Y;
 
 /**
  * Created by jingbin on 16/9/10.
@@ -55,6 +62,11 @@ public class MainActivity extends AppCompatActivity
     private List<Fragment> mFragments;
     // ViewPager的数据适配器
     private MyViewPagerAdapter mViewPagerAdapter;
+    //选择时间
+    protected int mYear;
+    protected int mMonth;
+    protected int mDay;
+    protected String days;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +75,11 @@ public class MainActivity extends AppCompatActivity
 
         initViews();
         initData();
-//        initView();
         configViews();
     }
 
 
     private void initData() {
-
         // Tab的标题采用string-array的方法保存，在res/values/arrays.xml中写
         mTitles = getResources().getStringArray(R.array.tab_titles);
 
@@ -85,18 +95,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.id_coordinatorlayout);
-//        mAppBarLayout = (AppBarLayout) findViewById(R.id.id_appbarlayout);
-        mToolbar = (Toolbar) findViewById(R.id.id_toolbar);
-        mTabLayout = (TabLayout) findViewById(R.id.id_tablayout);
-        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
-        mNavigationView = (NavigationView) findViewById(R.id.id_navigationview);
-//        mFloatingActionButton = (FloatingActionButton) findViewById(R.id.id_floatingactionbutton);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mToolbar = findViewById(R.id.id_toolbar);
+        mTabLayout = findViewById(R.id.id_tablayout);
+        mViewPager = findViewById(R.id.id_viewpager);
+        mNavigationView = findViewById(R.id.id_navigationview);
+
+        //设置日期选择器初始日期
+        mYear = Integer.parseInt(DateUtils.getCurYear(FORMAT_Y));
+        mMonth = Integer.parseInt(DateUtils.getCurMonth(FORMAT_M))-1;
+        mDay = Integer.parseInt(DateUtils.getCurMonth(FORMAT_D));
+        //设置当前 日期
+        days = DateUtils.getCurDateStr("yyyy-MM-dd");
+//        SnackbarUtil.showLong(this, days);
     }
 
     private void configViews() {
-
         // 设置显示Toolbar
         setSupportActionBar(mToolbar);
 
@@ -159,6 +173,34 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                    mYear = i;
+                    mMonth = i1;
+                    mDay = i2;
+                    if (mMonth + 1 < 10) {
+                        if (mDay < 10) {
+                            days = new StringBuffer().append(mYear).append("-").append("0").
+                                    append(mMonth + 1).append("-").append("0").append(mDay).toString();
+                        } else {
+                            days = new StringBuffer().append(mYear).append("-").append("0").
+                                    append(mMonth + 1).append("-").append(mDay).toString();
+                        }
+
+                    } else {
+                        if (mDay < 10) {
+                            days = new StringBuffer().append(mYear).append("-").
+                                    append(mMonth + 1).append("-").append("0").append(mDay).toString();
+                        } else {
+                            days = new StringBuffer().append(mYear).append("-").
+                                    append(mMonth + 1).append("-").append(mDay).toString();
+                        }
+
+                    }
+                    SnackbarUtil.showLong(MainActivity.this, days);
+                }
+            }, mYear, mMonth, mDay).show();
             return true;
         }
 
@@ -252,7 +294,7 @@ public class MainActivity extends AppCompatActivity
                         }
                     }, 100);
 
-                }else if (id == R.id.nav_full) {
+                } else if (id == R.id.nav_full) {
                     /** BottomNavigatorActivity*/
                     new Handler().postDelayed(new Runnable() {
                         @Override

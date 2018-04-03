@@ -155,13 +155,13 @@
 
 
     <string-array name="tab_titles">
-        <item>热点</item>
-        <item>科普</item>
-        <item>问答</item>
-        <item>饮食</item>
-        <item>专栏</item>
-        <item>护理</item>
-        <item>心理</item>
+        <item>洁面</item>
+        <item>精华</item>
+        <item>乳霜</item>
+        <item>眼霜</item>
+        <item>面膜</item>
+        <item>防晒</item>
+        <item>洗护</item>
     </string-array>
 
     <string name="item_clicked">item clicked！</string>

@@ -135,10 +135,10 @@ public class MyFragment extends Fragment
   }
 
   @Override public void onItemClick(View view, int position) {
-    SnackbarUtil.show(mRecyclerView, getString(R.string.item_clicked), 0);
+    SnackbarUtil.show(getActivity(), getString(R.string.item_clicked), 0);
   }
 
   @Override public void onItemLongClick(View view, int position) {
-    SnackbarUtil.show(mRecyclerView, getString(R.string.item_longclicked), 0);
+    SnackbarUtil.show(getActivity(), getString(R.string.item_longclicked), 0);
   }
 }
