@@ -49,11 +49,12 @@ public class NewAppWidget extends AppWidgetProvider {
 
     /**
      * 获取 打开 MainActivity 的 PendingIntent
+     * MainActivity 的启动模式改为"singleTask
      */
     private static PendingIntent getOpenPendingIntent(Context context) {
         Intent intent = new Intent();
         intent.setClass(context, MainActivity.class);
-//        intent.putExtra("main", "这句话是我从桌面点开传过去的。");
+        intent.putExtra("main", "这句话是我从桌面点开传过去的。");
         PendingIntent pi = PendingIntent.getActivity(context, 0, intent, 0);
         return pi;
     }

@@ -26,6 +26,7 @@
     app:cardUseCompatPadding="true"
     >
 
+  <!--外面包一层会过度绘制-->
   <include
     layout="@layout/item_list_content"/>
 

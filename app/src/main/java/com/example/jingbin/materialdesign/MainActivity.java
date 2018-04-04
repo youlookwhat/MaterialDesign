@@ -4,9 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -31,6 +28,7 @@ import com.example.jingbin.materialdesign.main.MyFragment;
 import com.example.jingbin.materialdesign.main.adapter.MyViewPagerAdapter;
 import com.example.jingbin.materialdesign.main.utils.DateUtils;
 import com.example.jingbin.materialdesign.main.utils.SnackbarUtil;
+import com.example.jingbin.materialdesign.notification.NewMessageNotification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,25 +41,19 @@ import static com.example.jingbin.materialdesign.main.utils.DateUtils.FORMAT_Y;
 /**
  * Created by jingbin on 16/9/10.
  */
-public class MainActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
     //初始化各种控件，照着xml中的顺序写
     private DrawerLayout mDrawerLayout;
-    private CoordinatorLayout mCoordinatorLayout;
-    private AppBarLayout mAppBarLayout;
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    private FloatingActionButton mFloatingActionButton;
     private NavigationView mNavigationView;
 
     // TabLayout中的tab标题
     private String[] mTitles;
     // 填充到ViewPager中的Fragment
     private List<Fragment> mFragments;
-    // ViewPager的数据适配器
-    private MyViewPagerAdapter mViewPagerAdapter;
     //选择时间
     protected int mYear;
     protected int mMonth;
@@ -103,7 +95,7 @@ public class MainActivity extends AppCompatActivity
 
         //设置日期选择器初始日期
         mYear = Integer.parseInt(DateUtils.getCurYear(FORMAT_Y));
-        mMonth = Integer.parseInt(DateUtils.getCurMonth(FORMAT_M))-1;
+        mMonth = Integer.parseInt(DateUtils.getCurMonth(FORMAT_M)) - 1;
         mDay = Integer.parseInt(DateUtils.getCurMonth(FORMAT_D));
         //设置当前 日期
         days = DateUtils.getCurDateStr("yyyy-MM-dd");
@@ -129,7 +121,7 @@ public class MainActivity extends AppCompatActivity
 //        mNavigationView.setNavigationItemSelectedListener(this);
 
         // 初始化ViewPager的适配器，并设置给它
-        mViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mTitles, mFragments);
+        MyViewPagerAdapter mViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mTitles, mFragments);
         mViewPager.setAdapter(mViewPagerAdapter);
         // 设置ViewPager最大缓存的页面个数
         mViewPager.setOffscreenPageLimit(5);
@@ -172,7 +164,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_calendar) {
             new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -202,6 +194,10 @@ public class MainActivity extends AppCompatActivity
                 }
             }, mYear, mMonth, mDay).show();
             return true;
+        } else if (id == R.id.action_notify) {
+            // 通知权限要打开才能显示
+            NewMessageNotification.notify(this, "这是一条新信息", 1);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -225,87 +221,54 @@ public class MainActivity extends AppCompatActivity
     /**
      * 设置NavigationView中menu的item被选中后要执行的操作
      *
-     * @param mNav
+     * @param mNav NavigationView
      */
     private void onNavigationViewMenuItemSelected(NavigationView mNav) {
         mNav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 // Handle navigation view item clicks here.
-                int id = item.getItemId();
-
-                if (id == R.id.nav_login) {
-                    /** 登录*/
-                    // Handle the camera action
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                final int id = item.getItemId();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        switch (id) {
+                            case R.id.nav_login:
+                                /** 登录*/
+                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                                break;
+                            case R.id.nav_gallery:
+                                /** 滚动title置顶的scrollview*/
+                                startActivity(new Intent(MainActivity.this, ScrollingActivity.class));
+                                break;
+                            case R.id.nav_slideshow:
+                                /** ListView*/
+                                startActivity(new Intent(MainActivity.this, ItemListActivity.class));
+                                break;
+                            case R.id.nav_manage:
+                                /** 设置*/
+                                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                                break;
+                            case R.id.nav_share:
+                                /** TabbedActivity*/
+                                startActivity(new Intent(MainActivity.this, TabbedActivity.class));
+                                break;
+                            case R.id.nav_send:
+                                /** BottomNavigatorActivity*/
+                                startActivity(new Intent(MainActivity.this, BottomNavigatorActivity.class));
+                                break;
+                            case R.id.nav_full:
+                                /** 全屏*/
+                                startActivity(new Intent(MainActivity.this, FullscreenActivity.class));
+                                break;
+                            default:
+                                break;
                         }
-                    }, 100);
+                    }
 
-                } else if (id == R.id.nav_gallery) {
-                    /** 滚动title置顶的scroolview*/
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, ScrollingActivity.class));
-                        }
-                    }, 100);
+                }, 100);
 
-                } else if (id == R.id.nav_slideshow) {
-                    /** listview*/
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, ItemListActivity.class));
-                        }
-                    }, 100);
-                } else if (id == R.id.nav_manage) {
-                    /** 设置*/
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                        }
-                    }, 100);
-
-                } else if (id == R.id.nav_share) {
-                    /** TabbedActivity*/
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, TabbedActivity.class));
-                        }
-                    }, 100);
-
-                } else if (id == R.id.nav_send) {
-                    /** BottomNavigatorActivity*/
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, BottomNavigatorActivity.class));
-                        }
-                    }, 100);
-
-                } else if (id == R.id.nav_full) {
-                    /** BottomNavigatorActivity*/
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            //execute the task
-                            startActivity(new Intent(MainActivity.this, FullscreenActivity.class));
-                        }
-                    }, 100);
-                }
-
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);// “right” -- end  "left" -- start
                 return true;
             }
