@@ -30,7 +30,6 @@
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             >
 
-
             <!---->
             <ImageView
                 android:id="@+id/ivImage"

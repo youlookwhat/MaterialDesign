@@ -63,4 +63,10 @@ public class SnackbarUtil {
         });
     }
 
+    public static void show(Activity activity, String msg) {
+        mSnackbar = Snackbar.make(activity.getWindow().getDecorView(), msg, Snackbar.LENGTH_SHORT);
+        mSnackbar.show();
+    }
+
+
 }
