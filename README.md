@@ -19,15 +19,25 @@
 
 ## Code
 > - [MainActivity][1]
-> - [BookDetailActivity][2]
-> - [LoginActivity][3]
-> - [ScrollingActivity][4]
-> - [ItemListActivity][5]
-> - [SettingsActivity][6]
-> - [TabbedActivity][7]
-> - [BottomNavigatorActivity][8]
-> - [FullscreenActivity][9] 
-> - [NewAppWidget][10]
+ > - 1.首页滑动隐藏标题栏，悬浮置顶菜单选择栏并点击单个item移动至屏幕中间。
+ > - 2.RecyclerView显示VERTICAL_LIST，HORIZONTAL_LIST，VERTICAL_GRID，HORIZONTAL_GRID，STAGGERED_GRID。
+ > - 3.SwipeRefreshLayout变色下拉加载，RecyclerView简单上拉加载。
+ > - 4.DrawerLayout + NavigationView侧边栏。
+ > - 5.菜单①显示系统日历；菜单②点击显示通知消息。
+
+> - [BookDetailActivity][2] - 图片转场动画，上滑置顶标签选择栏，点击切换。
+
+> - [LoginActivity][3] - 系统自带的登录页面
+
+> - [ScrollingActivity][4] - 系统自带的ScrollingActivity,滑动缩放标题
+
+> - [ItemListActivity][5] - 展示正常的list列表，点击进入详情
+
+> - [SettingsActivity][6] - 系统自带的设置页面
+> - [TabbedActivity][7] - 系统自带的左右滑动切换页面
+> - [BottomNavigatorActivity][8] - 系统自带的点击底部三个类别切换页面
+> - [FullscreenActivity][9] - 系统自带的全屏显示页面
+> - [NewAppWidget][10] - 显示桌面小控件
 
 
 ## Project Picture
