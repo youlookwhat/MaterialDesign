@@ -19,11 +19,11 @@
 
 ## Code
 > - [MainActivity][1]
-    - 1.首页滑动隐藏标题栏，悬浮置顶菜单选择栏并点击单个item移动至屏幕中间。
-    - 2.RecyclerView显示VERTICAL_LIST，HORIZONTAL_LIST，VERTICAL_GRID，HORIZONTAL_GRID，STAGGERED_GRID。
-    - 3.SwipeRefreshLayout变色下拉加载，RecyclerView简单上拉加载。
-    - 4.DrawerLayout + NavigationView侧边栏。
-    - 5.菜单①显示系统日历；菜单②点击显示通知消息。
+   - 1.首页滑动隐藏标题栏，悬浮置顶菜单选择栏并点击单个item移动至屏幕中间。
+   - 2.RecyclerView显示VERTICAL_LIST，HORIZONTAL_LIST，VERTICAL_GRID，HORIZONTAL_GRID，STAGGERED_GRID。
+   - 3.SwipeRefreshLayout变色下拉加载，RecyclerView简单上拉加载。
+   - 4.DrawerLayout + NavigationView侧边栏。
+   - 5.菜单①显示系统日历；菜单②点击显示通知消息。
 > - [BookDetailActivity][2] - 图片转场动画，上滑置顶标签选择栏，点击切换。
 > - [LoginActivity][3] - 系统自带的登录页面
 > - [ScrollingActivity][4] - 系统自带的ScrollingActivity,滑动缩放标题
