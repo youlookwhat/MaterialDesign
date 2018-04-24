@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.jingbin.materialdesign.R;
+import com.example.jingbin.materialdesign.main.utils.SnackbarUtil;
 
 import java.util.List;
 
@@ -42,9 +43,11 @@ public class ScrollingActivity extends AppCompatActivity {
             String scheme = data.getScheme();
             String host = data.getHost();
             List<String> params = data.getPathSegments();
-            String testId = params.get(0); // "uuid"
+            // 从网页传过来的数据
+            String testId = params.get(0);
             String text = "Scheme: " + scheme + "\n" + "host: " + host + "\n" + "params: " + testId;
             Log.e("ScrollingActivity", text);
+            SnackbarUtil.show(this, testId);
         } catch (Exception e) {
             e.printStackTrace();
         }

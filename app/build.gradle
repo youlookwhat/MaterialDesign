@@ -17,6 +17,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //配置签名文件
+    signingConfigs {
+        release {
+            storeFile file("./material")
+            storePassword "material"
+            keyAlias "material"
+            keyPassword "material"
+        }
+        debug {
+            storeFile file("./material")
+            storePassword "material"
+            keyAlias "material"
+            keyPassword "material"
+        }
+    }
 }
 
 dependencies {
