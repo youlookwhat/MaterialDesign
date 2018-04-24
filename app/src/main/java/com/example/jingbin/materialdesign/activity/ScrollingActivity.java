@@ -1,13 +1,17 @@
 package com.example.jingbin.materialdesign.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.example.jingbin.materialdesign.R;
+
+import java.util.List;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class ScrollingActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getDataFromBrowser();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,5 +31,22 @@ public class ScrollingActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    /**
+     * 从deep link中获取数据
+     */
+    private void getDataFromBrowser() {
+        Uri data = getIntent().getData();
+        try {
+            String scheme = data.getScheme();
+            String host = data.getHost();
+            List<String> params = data.getPathSegments();
+            String testId = params.get(0); // "uuid"
+            String text = "Scheme: " + scheme + "\n" + "host: " + host + "\n" + "params: " + testId;
+            Log.e("ScrollingActivity", text);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

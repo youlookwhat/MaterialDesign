@@ -53,10 +53,6 @@
             android:label="@string/title_activity_tab"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".activity.ScrollingActivity"
-            android:label="@string/title_activity_scrolling2"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".activity.BottomNavigatorActivity"
             android:label="@string/title_activity_botton_navagtor" />
         <activity
@@ -74,6 +70,25 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
+
+        <!--用于DeepLink，html跳到此页面  scheme_Adr: 'will://share/testid',-->
+        <activity
+            android:name=".activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling2"
+            android:theme="@style/AppTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="share"
+                    android:scheme="will" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
