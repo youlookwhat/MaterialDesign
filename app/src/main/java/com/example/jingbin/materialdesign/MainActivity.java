@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mViewPager.setOffscreenPageLimit(5);
         // 给ViewPager添加页面动态监听器（为了让Toolbar中的Title可以变化相应的Tab的标题）
         mViewPager.addOnPageChangeListener(this);
-
+        // 可滚动
         mTabLayout.setTabMode(MODE_SCROLLABLE);
         // 将TabLayout和ViewPager进行关联，让两者联动起来
         mTabLayout.setupWithViewPager(mViewPager);
