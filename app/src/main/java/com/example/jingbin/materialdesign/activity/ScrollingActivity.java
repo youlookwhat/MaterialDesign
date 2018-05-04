@@ -36,6 +36,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
     /**
      * 从deep link中获取数据
+     * 'will://share/传过来的数据'
      */
     private void getDataFromBrowser() {
         Uri data = getIntent().getData();
