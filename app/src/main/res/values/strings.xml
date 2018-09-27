@@ -207,4 +207,5 @@
     <string name="action_share">Share</string>
     <string name="action_reply">Reply</string>
     <string name="action_notify">Notification</string>
+    <string name="action_dialog">ItemListDialogFragment</string>
 </resources>

@@ -16,9 +16,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import com.example.jingbin.materialdesign.activity.BottomNavigatorActivity;
 import com.example.jingbin.materialdesign.activity.FullscreenActivity;
+import com.example.jingbin.materialdesign.activity.ItemListDialogFragment;
 import com.example.jingbin.materialdesign.activity.LoginActivity;
 import com.example.jingbin.materialdesign.activity.ScrollingActivity;
 import com.example.jingbin.materialdesign.activity.SettingsActivity;
@@ -41,7 +43,7 @@ import static com.example.jingbin.materialdesign.main.utils.DateUtils.FORMAT_Y;
 /**
  * Created by jingbin on 16/9/10.
  */
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, ItemListDialogFragment.Listener {
 
     //初始化各种控件，照着xml中的顺序写
     private DrawerLayout mDrawerLayout;
@@ -198,7 +200,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             // 通知权限要打开才能显示
             NewMessageNotification.notify(this, "这是一条新信息", 1);
             return true;
+        } else if (id == R.id.action_dialog) {
+            ItemListDialogFragment itemListDialogFragment = ItemListDialogFragment.newInstance(50);
+            itemListDialogFragment.show(getSupportFragmentManager(), "MainActivity");
+            return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -275,4 +282,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         });
     }
 
+    @Override
+    public void onItemClicked(int position) {
+        Toast.makeText(this, "点中了第" + position + "个", Toast.LENGTH_LONG).show();
+    }
 }

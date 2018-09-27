@@ -12,4 +12,10 @@
         android:orderInCategory="100"
         android:title="@string/action_notify"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_dialog"
+        android:orderInCategory="100"
+        android:title="@string/action_dialog"
+        app:showAsAction="never" />
 </menu>
