@@ -2,6 +2,7 @@ package com.example.jingbin.materialdesign;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -22,6 +23,7 @@ import com.example.jingbin.materialdesign.activity.BottomNavigatorActivity;
 import com.example.jingbin.materialdesign.activity.FullscreenActivity;
 import com.example.jingbin.materialdesign.activity.ItemListDialogFragment;
 import com.example.jingbin.materialdesign.activity.LoginActivity;
+import com.example.jingbin.materialdesign.activity.PlusOneFragment;
 import com.example.jingbin.materialdesign.activity.ScrollingActivity;
 import com.example.jingbin.materialdesign.activity.SettingsActivity;
 import com.example.jingbin.materialdesign.activity.TabbedActivity;
@@ -43,7 +45,7 @@ import static com.example.jingbin.materialdesign.main.utils.DateUtils.FORMAT_Y;
 /**
  * Created by jingbin on 16/9/10.
  */
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, ItemListDialogFragment.Listener {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, ItemListDialogFragment.Listener, PlusOneFragment.OnFragmentInteractionListener {
 
     //初始化各种控件，照着xml中的顺序写
     private DrawerLayout mDrawerLayout;
@@ -79,12 +81,24 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         //初始化填充到ViewPager中的Fragment集合
         mFragments = new ArrayList<>();
-        for (int i = 0; i < mTitles.length; i++) {
+        int length = mTitles.length;
+        for (int i = 0; i < length; i++) {
             Bundle mBundle = new Bundle();
             mBundle.putInt("flag", i);
             MyFragment mFragment = new MyFragment();
             mFragment.setArguments(mBundle);
             mFragments.add(i, mFragment);
+
+            if (i == length - 1) {
+                mFragments.remove(length - 1);
+                PlusOneFragment plusOneFragment = PlusOneFragment.newInstance("md", "md");
+                mFragments.add(length - 1, plusOneFragment);
+            }
+//            else if (i == length - 2) {
+//                mFragments.remove(length - 2);
+//                ItemFragment itemFragment = ItemFragment.newInstance(3);
+//                mFragments.add(length - 2, itemFragment);
+//            }
         }
     }
 
@@ -282,8 +296,19 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         });
     }
 
+    /**
+     * ItemListDialogFragment 的实现接口
+     */
     @Override
     public void onItemClicked(int position) {
         Toast.makeText(this, "点中了第" + position + "个", Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * PlusOneFragment 的实现接口
+     */
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        Toast.makeText(this, "uri:" + uri, Toast.LENGTH_LONG).show();
     }
 }
